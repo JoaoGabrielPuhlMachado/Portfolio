@@ -12,7 +12,14 @@
   "devDependencies": {
     "@pinia/nuxt": "^0.5.1",
     "nuxt": "^3.9.1",
+    "postcss": "^8.4.33",
+    "postcss-custom-properties": "^13.3.4",
+    "postcss-preset-env": "^9.3.0",
     "vue": "^3.4.10",
     "vue-router": "^4.2.5"
+  },
+  "dependencies": {
+    "postcss-nested": "^6.0.1",
+    "typed.js": "^2.1.0"
   }
 }

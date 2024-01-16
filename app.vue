@@ -1,4 +1,5 @@
 <script setup>
+import { onMounted, onUnmounted } from "vue";
 useHead({
   titleTemplate: (titleChunk) => {
     return titleChunk
@@ -6,21 +7,40 @@ useHead({
       : "João Gabriel Portfolio";
   },
 });
+const addBorderOnScroll = () => {
+  const handleScroll = () => {
+    const scrollPosition = window.scrollY || document.documentElement.scrollTop;
+
+    if (scrollPosition > 0) {
+      document.body.classList.add("with-border");
+    } else {
+      document.body.classList.remove("with-border");
+    }
+  };
+
+  onMounted(() => {
+    window.addEventListener("scroll", handleScroll);
+  });
+
+  onUnmounted(() => {
+    window.removeEventListener("scroll", handleScroll);
+  });
+};
+
+addBorderOnScroll();
 </script>
+
 <template>
-  <div>
-    <h1>Welcome to the homepage</h1>
-    <AppAlert> This is an auto-imported component. </AppAlert>
-    <NuxtPage />
-    <img src="/img/favicon.ico" alt="Discover Nuxt 3" />
-    <img src="/assets/img/favicon.ico" alt="Discover Nuxt 3" />
-    <header>
-      <nav>
-        <ul>
-          <li><NuxtLink to="/">Home</NuxtLink></li>
-          <li><NuxtLink to="/about">About</NuxtLink></li>
-        </ul>
-      </nav>
-    </header>
-  </div>
+  <CabecalhoComp />
+  <div class="bottom-border" />
+  <NuxtPage />
 </template>
+
+<style>
+body {
+  background-color: black;
+}
+.with-border header {
+  border-bottom: 1px solid rgba(119, 0, 255, 0.5);
+}
+</style>
