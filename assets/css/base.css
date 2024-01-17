@@ -5,7 +5,7 @@
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 ::-webkit-scrollbar {
-  width: 0;
+  width: 8px;
 }
 ::-webkit-scrollbar-thumb {
   background-color: rgba(119, 0, 255, 0.8);

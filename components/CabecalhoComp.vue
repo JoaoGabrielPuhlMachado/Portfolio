@@ -2,12 +2,14 @@
 import { onMounted, ref } from "vue";
 
 const currentPage = ref();
+
 const scrollToTop = () => {
   window.scrollTo({
     top: 0,
     behavior: "smooth",
   });
 };
+
 const scrollToSection = (sectionId) => {
   const targetElement = document.getElementById(sectionId);
 
@@ -15,6 +17,7 @@ const scrollToSection = (sectionId) => {
     targetElement.scrollIntoView({ behavior: "smooth" });
   }
 };
+
 const handleLinkClick = (e, sectionId, pageTitle) => {
   e.preventDefault();
   if (sectionId === "home") {
@@ -24,10 +27,21 @@ const handleLinkClick = (e, sectionId, pageTitle) => {
   }
   document.title = `${pageTitle} - João Gabriel`;
   currentPage.value = pageTitle;
+  localStorage.setItem("lastVisitedSection", sectionId);
 };
+
 onMounted(() => {
-  document.title = `Home - João Gabriel`;
-  currentPage.value = "Home";
+  const lastVisitedSection = localStorage.getItem("lastVisitedSection");
+  if (lastVisitedSection) {
+    scrollToSection(lastVisitedSection);
+    currentPage.value = lastVisitedSection;
+    document.title = `${
+      lastVisitedSection.charAt(0).toUpperCase() + lastVisitedSection.slice(1)
+    } - João Gabriel`;
+  } else {
+    document.title = `Home - João Gabriel`;
+    currentPage.value = "home";
+  }
 });
 </script>
 <template>
@@ -52,7 +66,7 @@ onMounted(() => {
     </ul>
   </header>
 </template>
-<style>
+<style scoped>
 header {
   backdrop-filter: blur(5px);
   height: 60px;
@@ -62,6 +76,7 @@ header {
   align-items: center;
   position: fixed;
   top: 0;
+  z-index: 5;
 }
 ul {
   display: flex;

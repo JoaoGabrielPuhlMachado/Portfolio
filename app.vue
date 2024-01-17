@@ -34,6 +34,7 @@ body {
   background-color: black;
 }
 .with-border header {
+  background-color: rgba(119, 0, 255, 0.06);
   border-bottom: 1px solid rgba(119, 0, 255, 0.5);
 }
 </style>
