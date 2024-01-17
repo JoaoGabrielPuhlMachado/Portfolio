@@ -1,12 +1,5 @@
 <script setup>
 import { onMounted, onUnmounted } from "vue";
-useHead({
-  titleTemplate: (titleChunk) => {
-    return titleChunk
-      ? `${titleChunk} - João Gabriel Portfolio`
-      : "João Gabriel Portfolio";
-  },
-});
 const addBorderOnScroll = () => {
   const handleScroll = () => {
     const scrollPosition = window.scrollY || document.documentElement.scrollTop;

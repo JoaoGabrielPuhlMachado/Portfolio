@@ -3,10 +3,6 @@ import "~/assets/css/base.css";
 import { onMounted, ref } from "vue";
 import Typed from "typed.js";
 
-useHead({
-  title: "Home",
-});
-
 const typedOutput = ref(null);
 
 const strings = [
@@ -152,7 +148,7 @@ onMounted(() => {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url("public/img/spaceship.jpg");
+  background-image: url("/img/spaceship.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

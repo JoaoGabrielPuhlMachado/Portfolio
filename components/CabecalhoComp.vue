@@ -1,11 +1,13 @@
 <script setup>
+import { onMounted, ref } from "vue";
+
+const currentPage = ref();
 const scrollToTop = () => {
   window.scrollTo({
     top: 0,
-    behavior: "smooth"
+    behavior: "smooth",
   });
 };
-
 const scrollToSection = (sectionId) => {
   const targetElement = document.getElementById(sectionId);
 
@@ -13,33 +15,39 @@ const scrollToSection = (sectionId) => {
     targetElement.scrollIntoView({ behavior: "smooth" });
   }
 };
-
-const handleLinkClick = (e, sectionId) => {
+const handleLinkClick = (e, sectionId, pageTitle) => {
   e.preventDefault();
-
-  if (sectionId === 'home') {
+  if (sectionId === "home") {
     scrollToTop();
   } else {
     scrollToSection(sectionId);
   }
+  document.title = `${pageTitle} - João Gabriel`;
+  currentPage.value = pageTitle;
 };
+onMounted(() => {
+  document.title = `Home - João Gabriel`;
+  currentPage.value = "Home";
+});
 </script>
 <template>
   <header>
     <ul>
       <li>
-        <a href="#" @click="handleLinkClick($event, 'home')">Home</a>
+        <a href="#" @click="handleLinkClick($event, 'home', 'Home')">Home</a>
       </li>
       <li>
-        <a href="#" @click="handleLinkClick($event, 'about')">About</a>
+        <a href="#" @click="handleLinkClick($event, 'about', 'About')">About</a>
       </li>
       <li>
-        <a href="#" @click="handleLinkClick($event, 'experience')"
+        <a href="#" @click="handleLinkClick($event, 'experience', 'Experience')"
           >Experience</a
         >
       </li>
       <li>
-        <a href="#" @click="handleLinkClick($event, 'contact')">Contact</a>
+        <a href="#" @click="handleLinkClick($event, 'contact', 'Contact')"
+          >Contact</a
+        >
       </li>
     </ul>
   </header>
