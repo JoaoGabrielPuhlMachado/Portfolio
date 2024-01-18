@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 90vh;
+  height: 100vh;
   overflow: hidden;
 }
 .container-home::before {
@@ -67,10 +67,10 @@
   color: rgb(119, 0, 255);
   text-decoration: none;
 }
-a:hover {
+.btn-contact:hover {
   font-weight: bolder;
-  color: rgb(224, 224, 224);
+  color: #58fff1;
 }
-a:active {
+.btn-contact:active {
   color: rgb(119, 0, 255);
 }

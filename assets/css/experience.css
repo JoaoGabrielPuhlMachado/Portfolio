@@ -3,21 +3,10 @@
   justify-content: center;
   align-items: center;
   position: relative;
-}
-.container-experience::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("/img/blackstars.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  z-index: -2;
+  scroll-margin-top: 60px;
 }
 .container-experience p {
+  font-size: 15px;
   color: rgb(151, 60, 255);
   display: block;
   margin-block-start: 1em;
@@ -27,21 +16,10 @@
   font-family: "SF Pro", monospace;
 }
 .subcontainer-experience {
-  border: 1px solid rgb(119, 0, 255);
   border-radius: 10px;
   width: 60%;
   padding: 1rem 1.9375rem;
   position: relative;
-}
-.experiences-title h1 {
-  font-family: "Source Code Pro", monospace !important;
-  margin-bottom: 1.5rem !important;
-  margin-top: 1.5rem !important;
-  -webkit-justify-content: center !important;
-  justify-content: center !important;
-  display: -webkit-flex !important;
-  display: flex;
-  color: #58fff1;
 }
 *,
 :after,
@@ -90,10 +68,10 @@
 .mention {
   color: white;
   text-decoration: underline;
+  font-weight: bold;
 }
 .mention:hover {
   color: #d90048;
-  font-weight: bold;
 }
 .date {
   font-size: 14px;

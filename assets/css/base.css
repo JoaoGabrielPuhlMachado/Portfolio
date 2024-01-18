@@ -4,6 +4,12 @@
     "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
+.title h1 {
+  font-family: "Source Code Pro", monospace !important;
+  justify-content: center !important;
+  display: flex;
+  color: #58fff1;
+}
 ::-webkit-scrollbar {
   width: 8px;
 }
