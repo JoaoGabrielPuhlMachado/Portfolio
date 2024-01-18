@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, ref } from "vue";
+import { ref } from "vue";
 
 const currentPage = ref();
 
@@ -29,20 +29,6 @@ const handleLinkClick = (e, sectionId, pageTitle) => {
   currentPage.value = pageTitle;
   localStorage.setItem("lastVisitedSection", sectionId);
 };
-
-onMounted(() => {
-  const lastVisitedSection = localStorage.getItem("lastVisitedSection");
-  if (lastVisitedSection) {
-    scrollToSection(lastVisitedSection);
-    currentPage.value = lastVisitedSection;
-    document.title = `${
-      lastVisitedSection.charAt(0).toUpperCase() + lastVisitedSection.slice(1)
-    } - João Gabriel`;
-  } else {
-    document.title = `Home - João Gabriel`;
-    currentPage.value = "home";
-  }
-});
 </script>
 <template>
   <header>
@@ -80,7 +66,6 @@ header {
 }
 ul {
   display: flex;
-  transition: 10s;
 }
 li {
   list-style-type: none;

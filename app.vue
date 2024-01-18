@@ -25,8 +25,8 @@ addBorderOnScroll();
 
 <template>
   <CabecalhoComp />
-  <div class="bottom-border" />
   <NuxtPage />
+  <RodapeComp />
 </template>
 
 <style>

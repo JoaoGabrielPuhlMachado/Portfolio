@@ -18,8 +18,8 @@
 .subcontainer-experience {
   border-radius: 10px;
   width: 60%;
-  padding: 1rem 1.9375rem;
   position: relative;
+  padding: 2rem 1.9375rem;
 }
 *,
 :after,
@@ -52,12 +52,11 @@
   position: relative;
   padding: 2rem 0 1rem;
   overflow: hidden;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 .experience-wrapper:before {
   position: absolute;
   content: "";
-  top: 0;
   left: 50%;
   margin-left: -0.00625rem;
   width: 0.08rem;

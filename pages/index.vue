@@ -35,12 +35,14 @@ onMounted(() => {
     const typedInstance = new Typed(typedOutput.value, options);
   }
 });
+
 const scrollToSection = (sectionId: string) => {
   const targetElement = document.getElementById(sectionId);
   if (targetElement) {
     targetElement.scrollIntoView({ behavior: "smooth" });
   }
 };
+
 const handleLinkClick = (e: Event, sectionId: string, pageTitle: string) => {
   e.preventDefault();
   scrollToSection(sectionId);
@@ -55,41 +57,27 @@ const formData = ref({
   mensagem: "",
 });
 
-const enviarContato = async () => {
-  const googleFormsURL = `https://docs.google.com/forms/d/e/1FAIpQLSfHxgQkJDTK07XLHPZwP-jKp-Ug6JaFyyr7VV7axYJoBhcsaQ/formResponse?submit=Submit`;
+const enviarContato = () => {
+  const googleFormsURL = `https://docs.google.com/forms/u/0/d/e/1FAIpQLSfHxgQkJDTK07XLHPZwP-jKp-Ug6JaFyyr7VV7axYJoBhcsaQ/viewform`;
 
   const formDataSerialized = new URLSearchParams({
-    "entry.123": formData.value.nome,
-    "entry.456": formData.value.email,
-    "entry.789": formData.value.celular,
-    "entry.012": formData.value.tema,
-    "entry.345": formData.value.mensagem,
+    "entry.2005620554": formData.value.nome,
+    "entry.1045781291": formData.value.email,
+    "entry.1166974658": formData.value.celular,
+    "entry.1003157911": formData.value.tema,
+    "entry.839337160": formData.value.mensagem,
   });
 
-  try {
-    const response = await fetch(googleFormsURL, {
-      method: "POST",
-      body: formDataSerialized,
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-    });
+  const googleFormsFullURL = `${googleFormsURL}?${formDataSerialized.toString()}`;
+  window.open(googleFormsFullURL, "_blank");
 
-    if (response.ok) {
-      formData.value = {
-        nome: "",
-        email: "",
-        celular: "",
-        tema: "",
-        mensagem: "",
-      };
-      console.log("Formulário enviado com sucesso!");
-    } else {
-      console.error("Erro no envio do formulário");
-    }
-  } catch (error) {
-    console.error("Erro na requisição:", error);
-  }
+  formData.value = {
+    nome: "",
+    email: "",
+    celular: "",
+    tema: "",
+    mensagem: "",
+  };
 };
 
 const enviarWhatsApp = () => {
@@ -98,14 +86,22 @@ const enviarWhatsApp = () => {
       formData.value.mensagem
     )}`
   );
+
+  formData.value = {
+    nome: "",
+    email: "",
+    celular: "",
+    tema: "",
+    mensagem: "",
+  };
 };
 </script>
 <template>
   <div id="home" class="container-home">
     <div class="glitch">
-      <h1 class="glitch-text">João Gabriel Puhl Machado</h1>
-      <h1 class="glitch-text">João Gabriel Puhl Machado</h1>
-      <h1 class="glitch-text">João Gabriel Puhl Machado</h1>
+      <h1>João Gabriel Puhl Machado</h1>
+      <h1>João Gabriel Puhl Machado</h1>
+      <h1>João Gabriel Puhl Machado</h1>
     </div>
     <div class="typed-text">
       <span ref="typedOutput" class="typed-output"></span>
@@ -147,6 +143,8 @@ const enviarWhatsApp = () => {
       </div>
       <div class="about">
         <div class="title">
+          <h1>About Me</h1>
+          <h1>About Me</h1>
           <h1>About Me</h1>
         </div>
         <p>
@@ -240,7 +238,9 @@ const enviarWhatsApp = () => {
     <div id="experience" class="container-experience">
       <div class="subcontainer-experience">
         <div class="title">
-          <h1>My Experiences</h1>
+          <h1>Experiences</h1>
+          <h1>Experiences</h1>
+          <h1>Experiences</h1>
         </div>
         <div class="experience-wrapper">
           <div class="timeline-block timeline-block-left">
@@ -370,76 +370,77 @@ const enviarWhatsApp = () => {
   <div id="contact" class="container-contact">
     <div class="title">
       <h1>Contact Me</h1>
+      <h1>Contact Me</h1>
+      <h1>Contact Me</h1>
     </div>
     <div class="subtitle">
       <p>
-        To get in touch, please fill out the form below. I look forward to
-        meeting you.
+        To get in touch fast, click on "Contact Me - Whatsapp". If you want to
+        contact me normally, you can fill the form completely and press "Contact
+        Me - Google Form". I look forward to meeting you.
       </p>
     </div>
-    <div class="container">
-      <form>
-        <div class="contact-input-message">
-          <div class="input-area">
-            <div class="center-text">
-              <input
-                v-model="formData.nome"
-                type="text"
-                class="input-area-contact"
-                placeholder="NAME"
-                name="name"
-              />
-            </div>
-            <div class="center-text">
-              <input
-                v-model="formData.email"
-                class="input-area-contact"
-                placeholder="EMAIL"
-                name="email"
-                type="email"
-              />
-            </div>
-            <div class="center-text">
-              <input
-                v-model="formData.celular"
-                class="input-area-contact"
-                placeholder="WHATSAPP"
-                name="phone"
-                type="text"
-              />
-            </div>
-            <div class="center-text">
-              <input
-                v-model="formData.tema"
-                class="input-area-contact"
-                placeholder="SUBJECT"
-                name="subject"
-                type="text"
-              />
-            </div>
+    <form>
+      <div class="contact-input-message">
+        <div class="input-area">
+          <div class="center-text">
+            <input
+              v-model="formData.nome"
+              type="text"
+              class="input-area-contact"
+              placeholder="NAME"
+              name="name"
+            />
           </div>
-          <div class="message-area">
-            <div class="center-text">
-              <textarea
-                v-model="formData.mensagem"
-                class="input-area-contact"
-                placeholder="MESSAGE"
-                name="message"
-                type="text"
-              ></textarea>
-            </div>
+          <div class="center-text">
+            <input
+              v-model="formData.email"
+              class="input-area-contact"
+              placeholder="EMAIL"
+              name="email"
+              type="email"
+            />
+          </div>
+          <div class="center-text">
+            <input
+              v-model="formData.celular"
+              class="input-area-contact"
+              placeholder="WHATSAPP"
+              name="phone"
+              type="text"
+            />
+          </div>
+          <div class="center-text">
+            <input
+              v-model="formData.tema"
+              class="input-area-contact"
+              placeholder="SUBJECT"
+              name="subject"
+              type="text"
+            />
           </div>
         </div>
-        <div class="container-button">
-          <button @click.prevent="enviarContato" class="contact-btn">
-            Contact Me - Google Form
-          </button>
-          <button @click.prevent="enviarWhatsApp" class="contact-btn">
-            Contact Me - Whatsapp
-          </button>
+        <div class="message-area">
+          <div class="center-text">
+            <textarea
+              v-model="formData.mensagem"
+              class="input-area-contact"
+              placeholder="MESSAGE"
+              name="message"
+              type="text"
+            ></textarea>
+          </div>
         </div>
-      </form>
-    </div>
+      </div>
+      <div class="container-button">
+        <button @click.prevent="enviarContato" class="contact-btn">
+          Contact Me - Send a Google Form
+        </button>
+        <button @click.prevent="enviarWhatsApp" class="contact-btn">
+          Contact Me - Whatsapp
+        </button>
+      </div>
+    </form>
   </div>
 </template>
 <style scoped>

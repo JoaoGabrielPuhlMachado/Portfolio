@@ -8,8 +8,8 @@ export default defineNuxtConfig({
   app: {
     head: {
       link: [
-        { rel: 'icon', type: 'image/jpg', sizes: '512x512', href: '/public/img/favicon.ico' },
-        { rel: 'apple-touch-icon', sizes: '512x512', href: '/public/img/favicon.ico' },
+        { rel: 'icon', type: 'image/jpg', sizes: '512x512', href: '/img/favicon.ico' },
+        { rel: 'apple-touch-icon', sizes: '512x512', href: '/img/favicon.ico' },
       ],
     },
   },
