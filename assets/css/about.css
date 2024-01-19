@@ -27,6 +27,7 @@
   margin-inline-start: 0px;
   margin-inline-end: 0px;
   font-family: "SF Pro", monospace;
+  font-size: 12px;
 }
 table {
   width: 100%;
@@ -38,12 +39,14 @@ td a {
   color: #58fff1;
   font-weight: bold;
   font-family: "SF Pro", monospace;
+  font-size: 12px;
 }
 td a:hover {
   color: rgb(119, 0, 255);
 }
 .skill-arrow {
   color: rgb(151, 60, 255);
+  font-size: 12px;
 }
 .container-photo {
   width: 400px;
@@ -54,14 +57,14 @@ td a:hover {
   align-items: center;
 }
 .photo {
-  width: 300px;
-  height: 300px;
+  width: 260px;
+  height: 260px;
   border: 2px solid rgb(151, 60, 255);
   border-radius: 100%;
   margin-bottom: 15px;
 }
 .about {
-  max-width: 55%;
+  width: 55%;
   padding: 2rem 1.9375rem;
   direction: ltr;
   border-radius: 10px;
@@ -92,4 +95,104 @@ td a:hover {
 .icon img:hover {
   background-color: rgb(119, 0, 255);
   transition: 0.3s;
+}
+
+@media screen and (min-width: 280px) and (max-width: 384px) {
+  .container-about {
+    scroll-margin-top: 40px;
+  }
+  .container-about p {
+    font-size: 11px;
+  }
+  td a,
+  .skill-arrow {
+    font-size: 11px;
+  }
+  .photo {
+    width: 200px;
+    height: 200px;
+  }
+  .about {
+    width: 80%;
+  }
+}
+@media screen and (min-width: 385px) and (max-width: 576px) {
+  .container-about {
+    scroll-margin-top: 45px;
+  }
+  .container-about p {
+    font-size: 13px;
+  }
+  td a,
+  .skill-arrow {
+    font-size: 12px;
+  }
+  .photo {
+    width: 240px;
+    height: 240px;
+  }
+  .about {
+    width: 80%;
+  }
+}
+@media screen and (min-width: 577px) and (max-width: 768px) {
+  .container-about p {
+    font-size: 14px;
+  }
+  td a,
+  .skill-arrow {
+    font-size: 13px;
+  }
+  .photo {
+    width: 240px;
+    height: 240px;
+  }
+  .about {
+    width: 70%;
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 1152px) {
+  .photo {
+    width: 240px;
+    height: 240px;
+  }
+  .about {
+    width: 80%;
+  }
+}
+@media screen and (min-width: 1153px) and (max-width: 1536px) {
+  .photo {
+    width: 260px;
+    height: 260px;
+  }
+  .about {
+    width: 60%;
+  }
+}
+@media screen and (min-width: 1921px) {
+  .container-about {
+    scroll-margin-top: 70px;
+  }
+  .container-about p {
+    font-size: 20px;
+  }
+  td a,
+  .skill-arrow {
+    font-size: 18px;
+  }
+  .photo {
+    width: 350px;
+    height: 350px;
+  }
+  .about {
+    width: 40%;
+  }
+  .container-photo {
+    width: 600px;
+    height: 600px;
+  }
+  .icon img {
+    width: 50px;
+    height: 50px;
+  }
 }

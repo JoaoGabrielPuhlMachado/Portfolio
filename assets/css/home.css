@@ -29,6 +29,7 @@
   margin: 0;
   line-height: 0;
   animation: glitch1 2.5s infinite;
+  text-align: center;
 }
 .glitch h1:nth-child(2) {
   color: #1900ff;
@@ -41,7 +42,7 @@
 .typed-text {
   margin: 30px;
   background-color: rgba(255, 255, 255, 0.1);
-  padding: 5px;
+  padding: 3px 4px;
   border-radius: 8px;
   backdrop-filter: blur(3px);
 }
@@ -67,4 +68,52 @@
 }
 .btn-contact:active {
   color: rgb(119, 0, 255);
+}
+
+@media screen and (min-width: 280px) and (max-width: 384px) {
+  .glitch h1 {
+    font-size: 16px;
+  }
+  .typed-output,
+  .typed-cursor {
+    font-size: 12px;
+  }
+}
+@media screen and (min-width: 385px) and (max-width: 576px) {
+  .glitch h1 {
+    font-size: 24px;
+  }
+  .typed-output,
+  .typed-cursor {
+    font-size: 16px;
+  }
+}
+@media screen and (min-width: 577px) and (max-width: 768px) {
+  .glitch h1 {
+    font-size: 26px;
+  }
+  .typed-output,
+  .typed-cursor {
+    font-size: 17px;
+  }
+}
+@media screen and (min-width: 1921px) {
+  .glitch h1 {
+    font-size: 40px;
+  }
+  .typed-output,
+  .typed-cursor {
+    font-size: 30px;
+  }
+  .btn-contact {
+    font-size: 30px;
+    padding: 1rem;
+  }
+  .typed-text {
+    margin: 50px;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 3px 4px;
+    border-radius: 8px;
+    backdrop-filter: blur(3px);
+  }
 }

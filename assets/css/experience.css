@@ -16,7 +16,6 @@
   font-family: "SF Pro", monospace;
 }
 .subcontainer-experience {
-  border-radius: 10px;
   width: 60%;
   position: relative;
   padding: 2rem 1.9375rem;
@@ -26,12 +25,19 @@
 :before {
   box-sizing: border-box;
 }
+.timeline-content h3 {
+  font-size: 22px;
+}
+.date {
+  font-size: 20px;
+}
+.timeline-content h3,
+.date {
+  color: #58fff1;
+  font-weight: bold;
+}
 .timeline-block {
   width: 47%;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-justify-content: space-between;
-  justify-content: space-between;
   clear: both;
 }
 .timeline-block-right {
@@ -72,11 +78,121 @@
 .mention:hover {
   color: #d90048;
 }
-.date {
-  font-size: 14px;
+
+@media screen and (max-width: 384px) {
+  .container-experience {
+    scroll-margin-top: 40px;
+  }
+  .container-experience p {
+    font-size: 11px;
+  }
+  .subcontainer-experience {
+    width: 100%;
+  }
+  .timeline-content h3 {
+    font-size: 14px;
+  }
+  .date {
+    font-size: 13px;
+  }
+  .timeline-block {
+    width: 100%;
+    margin: 10px 0;
+  }
+  .timeline-block-right {
+    float: right;
+  }
+  .timeline-block-left {
+    direction: ltr;
+    float: right;
+  }
+  .timeline-content {
+    width: 100%;
+  }
+  .experience-wrapper:before {
+    display: none;
+  }
 }
-.timeline-content h3,
-.date {
-  color: #58fff1;
-  font-weight: bold;
+@media screen and (min-width: 385px) and (max-width: 576px) {
+  .container-experience {
+    scroll-margin-top: 45px;
+  }
+  .container-experience p {
+    font-size: 11px;
+  }
+  .subcontainer-experience {
+    width: 100%;
+  }
+  .timeline-content h3 {
+    font-size: 14px;
+  }
+  .date {
+    font-size: 13px;
+  }
+  .timeline-block {
+    width: 100%;
+    margin: 10px 0;
+  }
+  .timeline-block-left {
+    float: right;
+  }
+  .experience-wrapper:before {
+    display: none;
+  }
+}
+@media screen and (min-width: 577px) and (max-width: 768px) {
+  .container-experience p {
+    font-size: 13px;
+  }
+  .subcontainer-experience {
+    width: 70%;
+  }
+  .timeline-content h3 {
+    font-size: 20px;
+  }
+  .date {
+    font-size: 18px;
+  }
+  .timeline-block {
+    width: 100%;
+    margin: 10px 0;
+  }
+  .timeline-block-left {
+    float: right;
+  }
+  .experience-wrapper:before {
+    display: none;
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 1152px) {
+  .subcontainer-experience {
+    width: 85%;
+  }
+}
+@media screen and (min-width: 1153px) and (max-width: 1536px) {
+  .subcontainer-experience {
+    width: 85%;
+  }
+}
+@media screen and (min-width: 1921px) {
+  .container-experience {
+    scroll-margin-top: 70px;
+  }
+  .container-experience p {
+    font-size: 22px;
+  }
+  .subcontainer-experience {
+    width: 65%;
+    padding: 4rem 1.9375rem;
+  }
+  .timeline-content h3 {
+    font-size: 30px;
+  }
+  .date {
+    font-size: 28px;
+  }
+  .experience-wrapper {
+    padding: 4rem 0 1rem;
+  }
+
 }

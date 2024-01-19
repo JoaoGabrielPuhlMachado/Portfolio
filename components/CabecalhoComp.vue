@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from "vue";
+import "~/assets/css/cabecalho.css";
 
 const currentPage = ref();
 
@@ -53,30 +54,5 @@ const handleLinkClick = (e, sectionId, pageTitle) => {
   </header>
 </template>
 <style scoped>
-header {
-  backdrop-filter: blur(5px);
-  height: 60px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  z-index: 5;
-}
-ul {
-  display: flex;
-}
-li {
-  list-style-type: none;
-  font-size: 20px;
-  margin: 0 25px;
-}
-a {
-  text-decoration: none;
-  color: rgb(119, 0, 255);
-}
-a:hover {
-  font-weight: bolder;
-}
+/*  */
 </style>

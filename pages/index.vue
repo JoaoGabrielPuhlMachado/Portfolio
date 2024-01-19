@@ -290,7 +290,7 @@ const enviarWhatsApp = () => {
           </div>
           <div class="timeline-block timeline-block-left">
             <div class="timeline-content">
-              <h3>Second Year - The Wsorst One</h3>
+              <h3>Second Year - The Worst One</h3>
               <span class="date">2022</span>
               <p>
                 I started learning about database creation, business
@@ -434,7 +434,7 @@ const enviarWhatsApp = () => {
       </div>
       <div class="container-button">
         <button @click.prevent="enviarContato" class="contact-btn">
-          Contact Me - Send a Google Form
+          Contact Me - Google Form
         </button>
         <button @click.prevent="enviarWhatsApp" class="contact-btn">
           Contact Me - Whatsapp

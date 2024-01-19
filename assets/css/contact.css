@@ -1,7 +1,7 @@
 .container-contact {
   background-color: rgb(43, 43, 43);
   padding: 2rem 1rem;
-  min-height: 600px;
+  height: 500px;
 }
 .subtitle {
   display: flex;
@@ -13,6 +13,7 @@
   display: flex;
   width: 65%;
   color: rgb(151, 60, 255);
+  font-size: 15px;
 }
 form {
   display: flex;
@@ -23,7 +24,7 @@ form {
 .contact-input-message {
   justify-content: center;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 .input-area {
   width: 30%;
@@ -34,7 +35,7 @@ form {
   margin: 7px 1.5rem;
 }
 .message-area .input-area-contact {
-  height: 271px !important;
+  height: 145px !important;
 }
 .center-text {
   text-align: center !important;
@@ -51,7 +52,7 @@ form {
   outline: 0;
   font-family: "Source Code Pro", monospace !important;
   display: block;
-  height: 51.5px;
+  height: 20px;
   padding: 0.375rem 0;
   font-size: 1rem;
   line-height: 1.5rem;
@@ -65,16 +66,14 @@ form {
   justify-content: center;
 }
 .contact-btn {
-  margin-bottom: 20px;
   margin: 0 24px;
   border: 1px solid;
   border-radius: 4px !important;
   font-family: "Source Code Pro", monospace !important;
   text-transform: uppercase;
-  border-radius: 0;
-  padding: 10px;
   color: rgb(119, 0, 255);
   width: 30%;
+  height: 45px;
   background: none;
 }
 .contact-btn:hover {
@@ -85,4 +84,213 @@ form {
 .contact-btn:active {
   font-weight: bold;
   color: rgb(119, 0, 255);
+}
+
+@media screen and (min-width: 280px) and (max-width: 384px) {
+  .subtitle p {
+    width: 100%;
+    font-size: 12px;
+  }
+  .input-area {
+    width: 45%;
+    margin: 0px 0.5rem;
+  }
+  .message-area {
+    width: 45%;
+    margin: 3px 0.5rem;
+  }
+  .message-area .input-area-contact {
+    height: 149px !important;
+  }
+  .input-area-contact {
+    border-bottom: 0.125rem solid #a7a7af;
+    font-size: 14px;
+    line-height: 0rem;
+  }
+  .contact-btn {
+    margin: 0 2px;
+    padding: 0;
+    height: 40px;
+    width: 100%;
+  }
+  .container-button {
+    margin: 0 -10px;
+  }
+  ::placeholder {
+    font-size: 14px;
+  }
+}
+@media screen and (min-width: 385px) and (max-width: 576px) {
+  .subtitle p {
+    width: 100%;
+    font-size: 12px;
+  }
+  .input-area {
+    width: 45%;
+    margin: 0px 0.5rem;
+  }
+  .message-area {
+    width: 45%;
+    margin: 3px 0.5rem;
+  }
+  .message-area .input-area-contact {
+    height: 149px !important;
+  }
+  .input-area-contact {
+    border-bottom: 0.125rem solid #a7a7af;
+    font-size: 14px;
+    line-height: 0rem;
+  }
+  .contact-btn {
+    margin: 0 8px;
+    padding: 0 2px;
+    height: 40px;
+    width: 45%;
+  }
+  .container-button {
+    margin: 0 0px;
+  }
+  ::placeholder {
+    font-size: 14px;
+  }
+}
+@media screen and (min-width: 577px) and (max-width: 768px) {
+  .subtitle p {
+    width: 100%;
+    font-size: 12px;
+  }
+  .input-area {
+    width: 45%;
+    margin: 0px 0.5rem;
+  }
+  .message-area {
+    width: 45%;
+    margin: 3px 0.5rem;
+  }
+  .message-area .input-area-contact {
+    height: 149px !important;
+  }
+  .input-area-contact {
+    border-bottom: 0.125rem solid #a7a7af;
+    font-size: 14px;
+    line-height: 0rem;
+  }
+  .contact-btn {
+    margin: 0 8px;
+    padding: 0 2px;
+    height: 40px;
+    width: 45%;
+  }
+  .container-button {
+    margin: 0 0px;
+  }
+  ::placeholder {
+    font-size: 14px;
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 1152px) {
+  .subtitle p {
+    width: 75%;
+    font-size: 13px;
+  }
+  .input-area {
+    width: 35%;
+    margin: 0px 0.5rem;
+  }
+  .message-area {
+    width: 35%;
+    margin: 3px 0.5rem;
+  }
+  .message-area .input-area-contact {
+    height: 149px !important;
+  }
+  .input-area-contact {
+    border-bottom: 0.125rem solid #a7a7af;
+    font-size: 14px;
+    line-height: 0rem;
+  }
+  .contact-btn {
+    margin: 0 8px;
+    padding: 0 2px;
+    height: 40px;
+    width: 35%;
+  }
+  .container-button {
+    margin: 0 0px;
+  }
+  ::placeholder {
+    font-size: 14px;
+  }
+}
+@media screen and (min-width: 1153px) and (max-width: 1536px) {
+  .subtitle p {
+    width: 75%;
+    font-size: 13px;
+  }
+  .input-area {
+    width: 35%;
+    margin: 0px 0.5rem;
+  }
+  .message-area {
+    width: 35%;
+    margin: 3px 0.5rem;
+  }
+  .message-area .input-area-contact {
+    height: 149px !important;
+  }
+  .input-area-contact {
+    border-bottom: 0.125rem solid #a7a7af;
+    font-size: 14px;
+    line-height: 0rem;
+  }
+  .contact-btn {
+    margin: 0 8px;
+    padding: 0 2px;
+    height: 40px;
+    width: 35%;
+  }
+  .container-button {
+    margin: 0 0px;
+  }
+  ::placeholder {
+    font-size: 14px;
+  }
+}
+@media screen and (min-width: 1921px) {
+  .container-contact {
+    height: 600px;
+  }
+  .subtitle p {
+    width: 72%;
+    font-size: 22px;
+  }
+  .input-area {
+    width: 35%;
+    margin: 0px 0.5rem;
+  }
+  .message-area {
+    width: 35%;
+    margin: -20px 0.5rem;
+  }
+  .message-area .input-area-contact {
+    height: 172px !important;
+  }
+  .input-area-contact {
+    border-bottom: 0.125rem solid #a7a7af;
+    font-size: 22px;
+    line-height: 2rem;
+  }
+  .contact-btn {
+    margin: 0 8px;
+    padding: 0 2px;
+    height: 60px;
+    width: 35%;
+    font-size: 22px;
+  }
+  .container-button {
+    margin: 0 0px;
+  }
+  ::placeholder {
+    font-size: 22px;
+  }
 }

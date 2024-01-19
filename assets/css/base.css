@@ -31,6 +31,18 @@
   background-color: rgba(119, 0, 255, 0.8);
   border-radius: 15px;
 }
+
+@media screen and (min-width: 280px) and (max-width: 384px) {
+  .title h1 {
+    font-size: 21px;
+  }
+}
+@media screen and (min-width: 1921px) {
+  .title h1 {
+    font-size: 50px;
+  }
+}
+
 @keyframes glitch1 {
   0% {
     transform: none;
