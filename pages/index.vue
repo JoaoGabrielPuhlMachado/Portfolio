@@ -5,7 +5,19 @@ import "~/assets/css/about.css";
 import "~/assets/css/experience.css";
 import "~/assets/css/contact.css";
 
-import { onMounted, ref } from "vue";
+import { useLangStore } from "~/stores/lang.js";
+import { languageData } from "~/languages/index.js";
+import { computed, onMounted, ref } from "vue";
+
+const langStore = useLangStore();
+
+const currentLanguage = computed(() => langStore.currentLanguage);
+const currentLanguageData = computed(() => {
+  const langValue = currentLanguage.value as keyof typeof languageData;
+  return languageData[langValue];
+});
+
+const changeLanguage = langStore.toggleLanguage;
 
 import Typed from "typed.js";
 const typedOutput = ref(null);
@@ -111,8 +123,10 @@ const enviarWhatsApp = () => {
         href="#"
         class="btn-contact"
         @click="handleLinkClick($event, 'contact', 'Contact')"
-        >Contact</a
       >
+        {{ currentLanguageData.value?.home?.homebutton }}
+      </a>
+      <a class="btn-contact" @click="changeLanguage">Toggle Language</a>
     </div>
   </div>
   <div class="container-about-experience">
@@ -143,22 +157,24 @@ const enviarWhatsApp = () => {
       </div>
       <div class="about">
         <div class="title">
-          <h1>About Me</h1>
-          <h1>About Me</h1>
-          <h1>About Me</h1>
+          <h1>
+            {{ languageData[langStore.currentLanguage].about.abouttitle }}
+          </h1>
+          <h1>
+            {{ languageData[langStore.currentLanguage].about.abouttitle }}
+          </h1>
+          <h1>
+            {{ languageData[langStore.currentLanguage].about.abouttitle }}
+          </h1>
         </div>
         <p>
-          Hello! I'm João, an 18 years old Brazilian native still based in the
-          country.
+          {{ languageData[langStore.currentLanguage].about.intro[0] }}
         </p>
         <p>
-          I usually play games, go to the gym and practice some calisthenics
-          too.
+          {{ languageData[langStore.currentLanguage].about.intro[1] }}
         </p>
         <p>
-          I just finished school recently (2023), I studied Full-Stack
-          development at IFC Araquari in Santa Catarina. Technologies I've been
-          working with recently:
+          {{ languageData[langStore.currentLanguage].about.intro[2] }}
         </p>
         <table>
           <tbody>
@@ -238,105 +254,167 @@ const enviarWhatsApp = () => {
     <div id="experience" class="container-experience">
       <div class="subcontainer-experience">
         <div class="title">
-          <h1>Experiences</h1>
-          <h1>Experiences</h1>
-          <h1>Experiences</h1>
+          <h1>
+            {{
+              languageData[langStore.currentLanguage].experience.experiencetitle
+            }}
+          </h1>
+          <h1>
+            {{
+              languageData[langStore.currentLanguage].experience.experiencetitle
+            }}
+          </h1>
+          <h1>
+            {{
+              languageData[langStore.currentLanguage].experience.experiencetitle
+            }}
+          </h1>
         </div>
         <div class="experience-wrapper">
           <div class="timeline-block timeline-block-left">
             <div class="timeline-content">
-              <h3>Programming Concepts Introduction</h3>
+              <h3>
+                {{
+                  languageData[langStore.currentLanguage].experience.timeline[0]
+                    .title
+                }}
+              </h3>
               <span class="date">2020</span>
               <p>
-                A friend, called
+                {{
+                  languageData[langStore.currentLanguage].experience.timeline[0]
+                    .description[0]
+                }}
                 <a
                   href="https://www.instagram.com/vitorjessevs/"
                   target="_blank"
                   class="mention"
                 >
                   Vitor Jesse</a
-                >, was studying about programming, he told me about the basics
-                concepts of HTML and CSS. Fascinated by coding, I went to the
-                internet to study everything about it, found the website named
+                >{{
+                  languageData[langStore.currentLanguage].experience.timeline[0]
+                    .description[1]
+                }}
                 <a
                   href="https://www.w3schools.com/"
                   target="_blank"
                   class="mention"
                   >W3Schools</a
-                >. After some months, I signed up at IFC high school (federal
-                institution of Santa Catarina) to be a developer. That's how it
-                all began for me.
+                >{{
+                  languageData[langStore.currentLanguage].experience.timeline[0]
+                    .description[2]
+                }}
               </p>
             </div>
           </div>
           <div class="timeline-block timeline-block-right">
             <div class="timeline-content">
-              <h3>IFC First Year</h3>
+              <h3>
+                {{
+                  languageData[langStore.currentLanguage].experience.timeline[1]
+                    .title
+                }}
+              </h3>
               <span class="date">2021</span>
               <p>
-                In the first year studying at
+                {{
+                  languageData[langStore.currentLanguage].experience.timeline[1]
+                    .description[0]
+                }}
                 <a
                   href="https://araquari.ifc.edu.br/"
                   target="_blank"
                   class="mention"
                   >IFC</a
                 >
-                (excluding the high school, talking only about the dev part)
-                i've learned the basic of HTML, CSS and JavaScript, but I was
-                way ahead that, because I've studied that on 2020. It was all
-                thanks to Vitor.
+                {{
+                  languageData[langStore.currentLanguage].experience.timeline[1]
+                    .description[1]
+                }}
               </p>
             </div>
           </div>
           <div class="timeline-block timeline-block-left">
             <div class="timeline-content">
-              <h3>Second Year - The Worst One</h3>
+              <h3>
+                {{
+                  languageData[langStore.currentLanguage].experience.timeline[2]
+                    .title
+                }}
+              </h3>
               <span class="date">2022</span>
               <p>
-                I started learning about database creation, business
-                requirements, functional and non-functional requirements and
-                coding with a framework for the first time called
+                {{
+                  languageData[langStore.currentLanguage].experience.timeline[2]
+                    .description[0]
+                }}
                 <a href="https://vuejs.org/" target="_blank" class="mention"
                   >Vue</a
-                >. It was love at first sight, my professor and PhD
+                >{{
+                  languageData[langStore.currentLanguage].experience.timeline[2]
+                    .description[1]
+                }}
                 <a
                   href="https://github.com/eduardo-da-silva/"
                   target="_blank"
                   class="mention"
                   >Eduardo da Silva</a
                 >
-                taught me and all my class about it, I developed a movie website
-                called
+                {{
+                  languageData[langStore.currentLanguage].experience.timeline[2]
+                    .description[2]
+                }}
                 <a
                   href="https://filmeflixjoaoligia.surge.sh/"
                   target="_blank"
                   class="mention"
                   >FilmeFlix</a
                 >
-                with an already existing api for my final project on that year.
+                {{
+                  languageData[langStore.currentLanguage].experience.timeline[2]
+                    .description[3]
+                }}
               </p>
             </div>
           </div>
           <div class="timeline-block timeline-block-right">
             <div class="timeline-content">
-              <h3>Third and Last Year</h3>
+              <h3>
+                {{
+                  languageData[langStore.currentLanguage].experience.timeline[3]
+                    .title
+                }}
+              </h3>
               <span class="date">2023</span>
               <p>
-                2023, my last year at school, I learned some amazing things, I
-                started coding with
+                {{
+                  languageData[langStore.currentLanguage].experience.timeline[3]
+                    .description[0]
+                }}
                 <a
                   href="https://reactnative.dev/"
                   target="_blank"
                   class="mention"
                   >React-Native</a
-                >, got better at vue, created my own API, my own database using
-                django, developed a final project using Vue to create a website
-                (admin-only), React-Native to create an App (client-only),
-                Django for the DB and deployed it at
+                >{{
+                  languageData[langStore.currentLanguage].experience.timeline[3]
+                    .description[1]
+                }}
+                <a
+                  href="https://www.djangoproject.com/"
+                  target="_blank"
+                  class="mention"
+                  >Django</a
+                >{{
+                  languageData[langStore.currentLanguage].experience.timeline[3]
+                    .description[2]
+                }}
                 <a href="https://fl0.com/" target="_blank" class="mention"
                   >Fl0.com</a
-                >, axios for API and Pinia overall. Any curiosity, these
-                projects are on my
+                >{{
+                  languageData[langStore.currentLanguage].experience.timeline[3]
+                    .description[3]
+                }}
                 <a
                   href="https://github.com/JoaoGabrielPuhlMachado/"
                   target="_blank"
@@ -348,18 +426,27 @@ const enviarWhatsApp = () => {
           </div>
           <div class="timeline-block timeline-block-left">
             <div class="timeline-content">
-              <h3>Future Plans</h3>
-              <span class="date">2024 - Present</span>
+              <h3>
+                {{
+                  languageData[langStore.currentLanguage].experience.timeline[4]
+                    .title
+                }}
+              </h3>
+              <span class="date">{{
+                languageData[langStore.currentLanguage].experience.timeline[4]
+                  .date
+              }}</span>
               <p>
-                Now, that I've finished school, I can work in my own projects,
-                find a job, continue studying programming without worrying about
-                homeworks from school and etc. This monday (15/01/2024), I
-                started learning about
+                {{
+                  languageData[langStore.currentLanguage].experience.timeline[4]
+                    .description[0]
+                }}
                 <a href="https://nuxt.com/" target="_blank" class="mention"
                   >NuxtJs</a
-                >, at first I didn't know anything about it, but this portfolio
-                was developed in 5 days (finished in 19/01) and it's already
-                looking like this (imagine when I become 100% senior CSS).
+                >{{
+                  languageData[langStore.currentLanguage].experience.timeline[4]
+                    .description[1]
+                }}
               </p>
             </div>
           </div>
@@ -369,15 +456,19 @@ const enviarWhatsApp = () => {
   </div>
   <div id="contact" class="container-contact">
     <div class="title">
-      <h1>Contact Me</h1>
-      <h1>Contact Me</h1>
-      <h1>Contact Me</h1>
+      <h1>
+        {{ languageData[langStore.currentLanguage].contact.contacttitle }}
+      </h1>
+      <h1>
+        {{ languageData[langStore.currentLanguage].contact.contacttitle }}
+      </h1>
+      <h1>
+        {{ languageData[langStore.currentLanguage].contact.contacttitle }}
+      </h1>
     </div>
     <div class="subtitle">
       <p>
-        To get in touch fast, click on "Contact Me - Whatsapp". If you want to
-        contact me normally, you can fill the form completely and press "Contact
-        Me - Google Form". I look forward to meeting you.
+        {{ languageData[langStore.currentLanguage].contact.subtitle }}
       </p>
     </div>
     <form>
@@ -388,7 +479,9 @@ const enviarWhatsApp = () => {
               v-model="formData.nome"
               type="text"
               class="input-area-contact"
-              placeholder="NAME"
+              :placeholder="
+                languageData[langStore.currentLanguage].contact.formlabels.name
+              "
               name="name"
             />
           </div>
@@ -396,7 +489,9 @@ const enviarWhatsApp = () => {
             <input
               v-model="formData.email"
               class="input-area-contact"
-              placeholder="EMAIL"
+              :placeholder="
+                languageData[langStore.currentLanguage].contact.formlabels.email
+              "
               name="email"
               type="email"
             />
@@ -405,7 +500,10 @@ const enviarWhatsApp = () => {
             <input
               v-model="formData.celular"
               class="input-area-contact"
-              placeholder="WHATSAPP"
+              :placeholder="
+                languageData[langStore.currentLanguage].contact.formlabels
+                  .whatsapp
+              "
               name="phone"
               type="text"
             />
@@ -414,7 +512,10 @@ const enviarWhatsApp = () => {
             <input
               v-model="formData.tema"
               class="input-area-contact"
-              placeholder="SUBJECT"
+              :placeholder="
+                languageData[langStore.currentLanguage].contact.formlabels
+                  .subject
+              "
               name="subject"
               type="text"
             />
@@ -425,7 +526,10 @@ const enviarWhatsApp = () => {
             <textarea
               v-model="formData.mensagem"
               class="input-area-contact"
-              placeholder="MESSAGE"
+              :placeholder="
+                languageData[langStore.currentLanguage].contact.formlabels
+                  .message
+              "
               name="message"
               type="text"
             ></textarea>
@@ -434,10 +538,10 @@ const enviarWhatsApp = () => {
       </div>
       <div class="container-button">
         <button @click.prevent="enviarContato" class="contact-btn">
-          Contact Me - Google Form
+          {{ languageData[langStore.currentLanguage].contact.contactbutton[0] }}
         </button>
         <button @click.prevent="enviarWhatsApp" class="contact-btn">
-          Contact Me - Whatsapp
+          {{ languageData[langStore.currentLanguage].contact.contactbutton[1] }}
         </button>
       </div>
     </form>
