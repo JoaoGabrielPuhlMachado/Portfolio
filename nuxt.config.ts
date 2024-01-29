@@ -5,7 +5,6 @@ export default defineNuxtConfig({
       customElement: true
     },
   },
-  modules: ["@pinia/nuxt"],
   app: {
     head: {
       link: [

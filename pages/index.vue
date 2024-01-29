@@ -5,19 +5,15 @@ import "~/assets/css/about.css";
 import "~/assets/css/experience.css";
 import "~/assets/css/contact.css";
 
-import { useLangStore } from "~/stores/lang.js";
 import { languageData } from "~/languages/index.js";
-import { computed, onMounted, ref } from "vue";
 
-const langStore = useLangStore();
+const currentLanguage = ref<"en" | "pt">("pt");
 
-const currentLanguage = computed(() => langStore.currentLanguage);
-const currentLanguageData = computed(() => {
-  const langValue = currentLanguage.value as keyof typeof languageData;
-  return languageData[langValue];
-});
+const toggleLanguage = () => {
+  currentLanguage.value = currentLanguage.value === "en" ? "pt" : "en";
+};
 
-const changeLanguage = langStore.toggleLanguage;
+import { onMounted, ref } from "vue";
 
 import Typed from "typed.js";
 const typedOutput = ref(null);
@@ -124,9 +120,11 @@ const enviarWhatsApp = () => {
         class="btn-contact"
         @click="handleLinkClick($event, 'contact', 'Contact')"
       >
-        {{ currentLanguageData.value?.home?.homebutton }}
+        {{ languageData[currentLanguage].home.homebutton }}
       </a>
-      <a class="btn-contact" @click="changeLanguage">Toggle Language</a>
+      <a href="#" class="btn-contact" @click="toggleLanguage">{{
+        languageData[currentLanguage].home.togglelanguage
+      }}</a>
     </div>
   </div>
   <div class="container-about-experience">
@@ -158,23 +156,23 @@ const enviarWhatsApp = () => {
       <div class="about">
         <div class="title">
           <h1>
-            {{ languageData[langStore.currentLanguage].about.abouttitle }}
+            {{ languageData[currentLanguage].about.abouttitle }}
           </h1>
           <h1>
-            {{ languageData[langStore.currentLanguage].about.abouttitle }}
+            {{ languageData[currentLanguage].about.abouttitle }}
           </h1>
           <h1>
-            {{ languageData[langStore.currentLanguage].about.abouttitle }}
+            {{ languageData[currentLanguage].about.abouttitle }}
           </h1>
         </div>
         <p>
-          {{ languageData[langStore.currentLanguage].about.intro[0] }}
+          {{ languageData[currentLanguage].about.intro[0] }}
         </p>
         <p>
-          {{ languageData[langStore.currentLanguage].about.intro[1] }}
+          {{ languageData[currentLanguage].about.intro[1] }}
         </p>
         <p>
-          {{ languageData[langStore.currentLanguage].about.intro[2] }}
+          {{ languageData[currentLanguage].about.intro[2] }}
         </p>
         <table>
           <tbody>
@@ -255,34 +253,25 @@ const enviarWhatsApp = () => {
       <div class="subcontainer-experience">
         <div class="title">
           <h1>
-            {{
-              languageData[langStore.currentLanguage].experience.experiencetitle
-            }}
+            {{ languageData[currentLanguage].experience["experiencetitle"] }}
           </h1>
           <h1>
-            {{
-              languageData[langStore.currentLanguage].experience.experiencetitle
-            }}
+            {{ languageData[currentLanguage].experience["experiencetitle"] }}
           </h1>
           <h1>
-            {{
-              languageData[langStore.currentLanguage].experience.experiencetitle
-            }}
+            {{ languageData[currentLanguage].experience["experiencetitle"] }}
           </h1>
         </div>
         <div class="experience-wrapper">
           <div class="timeline-block timeline-block-left">
             <div class="timeline-content">
               <h3>
-                {{
-                  languageData[langStore.currentLanguage].experience.timeline[0]
-                    .title
-                }}
+                {{ languageData[currentLanguage].experience.timeline[0].title }}
               </h3>
               <span class="date">2020</span>
               <p>
                 {{
-                  languageData[langStore.currentLanguage].experience.timeline[0]
+                  languageData[currentLanguage].experience.timeline[0]
                     .description[0]
                 }}
                 <a
@@ -292,7 +281,7 @@ const enviarWhatsApp = () => {
                 >
                   Vitor Jesse</a
                 >{{
-                  languageData[langStore.currentLanguage].experience.timeline[0]
+                  languageData[currentLanguage].experience.timeline[0]
                     .description[1]
                 }}
                 <a
@@ -301,7 +290,7 @@ const enviarWhatsApp = () => {
                   class="mention"
                   >W3Schools</a
                 >{{
-                  languageData[langStore.currentLanguage].experience.timeline[0]
+                  languageData[currentLanguage].experience.timeline[0]
                     .description[2]
                 }}
               </p>
@@ -310,15 +299,12 @@ const enviarWhatsApp = () => {
           <div class="timeline-block timeline-block-right">
             <div class="timeline-content">
               <h3>
-                {{
-                  languageData[langStore.currentLanguage].experience.timeline[1]
-                    .title
-                }}
+                {{ languageData[currentLanguage].experience.timeline[1].title }}
               </h3>
               <span class="date">2021</span>
               <p>
                 {{
-                  languageData[langStore.currentLanguage].experience.timeline[1]
+                  languageData[currentLanguage].experience.timeline[1]
                     .description[0]
                 }}
                 <a
@@ -328,7 +314,7 @@ const enviarWhatsApp = () => {
                   >IFC</a
                 >
                 {{
-                  languageData[langStore.currentLanguage].experience.timeline[1]
+                  languageData[currentLanguage].experience.timeline[1]
                     .description[1]
                 }}
               </p>
@@ -337,21 +323,18 @@ const enviarWhatsApp = () => {
           <div class="timeline-block timeline-block-left">
             <div class="timeline-content">
               <h3>
-                {{
-                  languageData[langStore.currentLanguage].experience.timeline[2]
-                    .title
-                }}
+                {{ languageData[currentLanguage].experience.timeline[2].title }}
               </h3>
               <span class="date">2022</span>
               <p>
                 {{
-                  languageData[langStore.currentLanguage].experience.timeline[2]
+                  languageData[currentLanguage].experience.timeline[2]
                     .description[0]
                 }}
                 <a href="https://vuejs.org/" target="_blank" class="mention"
                   >Vue</a
                 >{{
-                  languageData[langStore.currentLanguage].experience.timeline[2]
+                  languageData[currentLanguage].experience.timeline[2]
                     .description[1]
                 }}
                 <a
@@ -361,7 +344,7 @@ const enviarWhatsApp = () => {
                   >Eduardo da Silva</a
                 >
                 {{
-                  languageData[langStore.currentLanguage].experience.timeline[2]
+                  languageData[currentLanguage].experience.timeline[2]
                     .description[2]
                 }}
                 <a
@@ -371,7 +354,7 @@ const enviarWhatsApp = () => {
                   >FilmeFlix</a
                 >
                 {{
-                  languageData[langStore.currentLanguage].experience.timeline[2]
+                  languageData[currentLanguage].experience.timeline[2]
                     .description[3]
                 }}
               </p>
@@ -380,15 +363,12 @@ const enviarWhatsApp = () => {
           <div class="timeline-block timeline-block-right">
             <div class="timeline-content">
               <h3>
-                {{
-                  languageData[langStore.currentLanguage].experience.timeline[3]
-                    .title
-                }}
+                {{ languageData[currentLanguage].experience.timeline[3].title }}
               </h3>
               <span class="date">2023</span>
               <p>
                 {{
-                  languageData[langStore.currentLanguage].experience.timeline[3]
+                  languageData[currentLanguage].experience.timeline[3]
                     .description[0]
                 }}
                 <a
@@ -397,7 +377,7 @@ const enviarWhatsApp = () => {
                   class="mention"
                   >React-Native</a
                 >{{
-                  languageData[langStore.currentLanguage].experience.timeline[3]
+                  languageData[currentLanguage].experience.timeline[3]
                     .description[1]
                 }}
                 <a
@@ -406,13 +386,13 @@ const enviarWhatsApp = () => {
                   class="mention"
                   >Django</a
                 >{{
-                  languageData[langStore.currentLanguage].experience.timeline[3]
+                  languageData[currentLanguage].experience.timeline[3]
                     .description[2]
                 }}
                 <a href="https://fl0.com/" target="_blank" class="mention"
                   >Fl0.com</a
                 >{{
-                  languageData[langStore.currentLanguage].experience.timeline[3]
+                  languageData[currentLanguage].experience.timeline[3]
                     .description[3]
                 }}
                 <a
@@ -427,24 +407,20 @@ const enviarWhatsApp = () => {
           <div class="timeline-block timeline-block-left">
             <div class="timeline-content">
               <h3>
-                {{
-                  languageData[langStore.currentLanguage].experience.timeline[4]
-                    .title
-                }}
+                {{ languageData[currentLanguage].experience.timeline[4].title }}
               </h3>
               <span class="date">{{
-                languageData[langStore.currentLanguage].experience.timeline[4]
-                  .date
+                languageData[currentLanguage].experience.timeline[4].date
               }}</span>
               <p>
                 {{
-                  languageData[langStore.currentLanguage].experience.timeline[4]
+                  languageData[currentLanguage].experience.timeline[4]
                     .description[0]
                 }}
                 <a href="https://nuxt.com/" target="_blank" class="mention"
                   >NuxtJs</a
                 >{{
-                  languageData[langStore.currentLanguage].experience.timeline[4]
+                  languageData[currentLanguage].experience.timeline[4]
                     .description[1]
                 }}
               </p>
@@ -457,18 +433,18 @@ const enviarWhatsApp = () => {
   <div id="contact" class="container-contact">
     <div class="title">
       <h1>
-        {{ languageData[langStore.currentLanguage].contact.contacttitle }}
+        {{ languageData[currentLanguage].contact.contacttitle }}
       </h1>
       <h1>
-        {{ languageData[langStore.currentLanguage].contact.contacttitle }}
+        {{ languageData[currentLanguage].contact.contacttitle }}
       </h1>
       <h1>
-        {{ languageData[langStore.currentLanguage].contact.contacttitle }}
+        {{ languageData[currentLanguage].contact.contacttitle }}
       </h1>
     </div>
     <div class="subtitle">
       <p>
-        {{ languageData[langStore.currentLanguage].contact.subtitle }}
+        {{ languageData[currentLanguage].contact.subtitle }}
       </p>
     </div>
     <form>
@@ -480,7 +456,7 @@ const enviarWhatsApp = () => {
               type="text"
               class="input-area-contact"
               :placeholder="
-                languageData[langStore.currentLanguage].contact.formlabels.name
+                languageData[currentLanguage].contact.formlabels.name
               "
               name="name"
             />
@@ -490,7 +466,7 @@ const enviarWhatsApp = () => {
               v-model="formData.email"
               class="input-area-contact"
               :placeholder="
-                languageData[langStore.currentLanguage].contact.formlabels.email
+                languageData[currentLanguage].contact.formlabels.email
               "
               name="email"
               type="email"
@@ -501,8 +477,7 @@ const enviarWhatsApp = () => {
               v-model="formData.celular"
               class="input-area-contact"
               :placeholder="
-                languageData[langStore.currentLanguage].contact.formlabels
-                  .whatsapp
+                languageData[currentLanguage].contact.formlabels.whatsapp
               "
               name="phone"
               type="text"
@@ -513,8 +488,7 @@ const enviarWhatsApp = () => {
               v-model="formData.tema"
               class="input-area-contact"
               :placeholder="
-                languageData[langStore.currentLanguage].contact.formlabels
-                  .subject
+                languageData[currentLanguage].contact.formlabels.subject
               "
               name="subject"
               type="text"
@@ -527,8 +501,7 @@ const enviarWhatsApp = () => {
               v-model="formData.mensagem"
               class="input-area-contact"
               :placeholder="
-                languageData[langStore.currentLanguage].contact.formlabels
-                  .message
+                languageData[currentLanguage].contact.formlabels.message
               "
               name="message"
               type="text"
@@ -538,10 +511,10 @@ const enviarWhatsApp = () => {
       </div>
       <div class="container-button">
         <button @click.prevent="enviarContato" class="contact-btn">
-          {{ languageData[langStore.currentLanguage].contact.contactbutton[0] }}
+          {{ languageData[currentLanguage].contact.contactbutton[0] }}
         </button>
         <button @click.prevent="enviarWhatsApp" class="contact-btn">
-          {{ languageData[langStore.currentLanguage].contact.contactbutton[1] }}
+          {{ languageData[currentLanguage].contact.contactbutton[1] }}
         </button>
       </div>
     </form>

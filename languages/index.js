@@ -2,6 +2,7 @@ export const languageData = {
   en: {
     home: {
       homebutton: "Contact Me",
+      togglelanguage: "Trocar para: PT-BR",
     },
     about: {
       abouttitle: "About Me",
@@ -82,6 +83,7 @@ export const languageData = {
   pt: {
     home: {
       homebutton: "Fale Comigo",
+      togglelanguage: "Change to: EN-US",
     },
     about: {
       abouttitle: "Sobre Mim",
