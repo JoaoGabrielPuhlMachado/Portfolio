@@ -27,7 +27,7 @@ form {
   flex-wrap: nowrap;
 }
 .input-area {
-  width: 30%;
+  width: 20%;
   margin: 0 1.5rem;
 }
 .message-area {
@@ -36,6 +36,7 @@ form {
 }
 .message-area .input-area-contact {
   height: 152px !important;
+  padding-bottom: 141px;
 }
 .center-text {
   text-align: center !important;

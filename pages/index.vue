@@ -497,7 +497,7 @@ const enviarWhatsApp = () => {
         </div>
         <div class="message-area">
           <div class="center-text">
-            <textarea
+            <input
               v-model="formData.mensagem"
               class="input-area-contact"
               :placeholder="
@@ -505,7 +505,7 @@ const enviarWhatsApp = () => {
               "
               name="message"
               type="text"
-            ></textarea>
+            />
           </div>
         </div>
       </div>
